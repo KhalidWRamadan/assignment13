@@ -2,27 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player 
+public class Player : Character
 {
-   public string playerName;
-   public int health;
-   private static int playerCount = 0;
+    public Player(string name, int health) : base(name, health){}
 
-   public void InitializePlayer(string name, int initialHealth){
-    playerName = name;
-    health = initialHealth;
-    playerCount++;
-   }
-   public void Heal(int amount){
-    health += amount;
-    Debug.Log(health);
-   }
-   public void Heal(bool fullRestore){
-    if(fullRestore) health = 100;
-    Debug.Log(health);
-   }
-
-   public static void ShowPlayerCount(){
-    Debug.Log(playerCount);
-   }
+    public void Heal(int value){
+      if(value > 0) this.Health += value;
+      else Debug.Log("Invalid Input Value");
+    }
 }
