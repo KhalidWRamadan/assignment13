@@ -10,7 +10,8 @@ public class Player : Character
   {
     if (value + Health > 100) this.Health = 100;
 
-    if (value > 0) this.Health += value;
+    else if (value > 0) this.Health += value;
     else Debug.Log("Invalid Input Value");
+
   }
 }
